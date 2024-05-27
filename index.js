@@ -68,7 +68,7 @@ async function searchMusic(searchTerm = 'cece winans') {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    searchMusic(); // Load default search results for "romantic"
+    searchMusic(); 
 });
 
 document.getElementById('searchInput').addEventListener('keypress', function(event) {
