@@ -3,7 +3,7 @@ const APIController = (function() {
     const clientId = '59ae3f81a053447294bfe1bc4cae3c9d';
     const clientSecret = 'cdb475cb99c34693b2eed63068a902a6';
 
-    const _getToken = async () => {
+    const accessToken = async () => {
         const result = await fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
             headers: {
@@ -17,7 +17,7 @@ const APIController = (function() {
         return data.access_token;
     };
 
-    const _searchMusic = async (token, query = 'romantic') => {
+    const searchMusic = async (token, query = 'gospel') => {
         const result = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(query)}&type=album&market=US`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token }
@@ -29,10 +29,10 @@ const APIController = (function() {
 
     return {
         getToken() {
-            return _getToken();
+            return accessToken();
         },
-        searchMusic(token, query = 'romantic') {
-            return _searchMusic(token, query);
+        searchMusic(token, query = 'gospel') {
+            return searchMusic(token, query);
         }
     };
 })();
